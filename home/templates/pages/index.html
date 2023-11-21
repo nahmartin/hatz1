@@ -62,7 +62,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="worldwide-nav-logo" href="/"></a>
 <div class='worldwide-nav-links desktop-nav'>
 <div class='top-bar'>
-<a title="Call Us" class="worldwide-nav-phone" href="tel:(877) 422-1570">(877) 422-1570</a>
 <div class='social-bar'>
 <a target="_blank" title="Facebook" href="https://www.facebook.com/Worldwide-Vintage-Autos-324003677743009/"><div class='social-icon2 social-btn facebook-icon'></div>
 </a><a target="_blank" title="Youtube" href="https://www.youtube.com/user/WWvintageautos"><div class='social-icon4 social-btn youtube-icon'></div>
@@ -387,7 +386,6 @@ color: #fff;
 </nav>
 </div>
 <a class="worldwide-mobile-logo" href="/"></a>
-<a class="worldwide-mobile-phone" href="tel:(877) 422-1570"></a>
 </div>
 </header>
 <div id='worldwide-menu-toggle'>
@@ -412,7 +410,6 @@ color: #fff;
 </a><a target="_blank" title="Motorious" href="https://buy.motorious.com/inventory/dealer/Worldwide+Vintage+Autos"><div class='social-icon7 social-btn mtrs-icon'></div>
 </a></div>
 
-<a title="Call Us" class="worldwide-nav-phone" href="tel:(877) 422-1570">(877) 422-1570</a>
 
 <style>
     @media only screen and (max-width: 767px) {
@@ -725,7 +722,7 @@ Sort By
 
 {% for car in car_list %}
 <a title="{{ car.year }} {{ car.brand }} {{ car.model }}" alt="{{ car.year }} {{ car.brand }} {{ car.model }}" class="worldwide-inventory-item vlp-item" href="{% url 'car_details' car.id %}">
-    <div class='vehicle-image lazy' data-src='{{ car.main_photo.url }}' style='background-image: url({{ car.main_photo.url }})'></div>
+    <div class='vehicle-image lazy' data-src='{{ car.photo_test_main|safe }}' style='background-image: url({{ car.photo_test_main|safe }})'></div>
     <div class='card-bottom'>
         <div class='year-mk'>
             {{ car.year }} {{ car.brand }}
@@ -774,7 +771,6 @@ Denver CO 80216
 <h6>
 Call
 </h6>
-<a href="tel:(877) 422-1570">(877) 422-1570</a>
 </div>
 <div class='info-block'>
 <h6>

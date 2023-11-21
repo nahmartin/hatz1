@@ -28,6 +28,12 @@
 
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MK4C87S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MH37N9G"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Google 2nd Tag Manager (noscript) -->
 
 <div id='wrap'>
 <header>
@@ -50,22 +56,25 @@
 </a></div>
 <nav class='desktop-nav bottom-bar'>
 <ul class='nav navbar-nav'>
-<li class='dropdown'>
+<li class='dropdown '>
 <a class="dropdown-toggle" href="#0">Inventory
 </a><ul class='dropdown-menu'>
 <li>
-<a href="{% url 'sold' %}">Sold Vehicles</a>
+<a href="/#">Current Inventory</a>
+</li>
+<li>
+<a href="/vehicles/sold">Sold Vehicles</a>
 </li>
 </ul>
 </li>
 <li>
-<a href="/#">Current Inventory</a>
+<a href="/">Current Inventory</a>
 </li>
 <li>
 <a href="{% url 'contact' %}">Contact</a>
 
 </li>
-<li>
+    <li>
 <a href="{% url 'car-finder' %}">Car Finder</a>
 </li>
 <li>
@@ -116,169 +125,18 @@
 </a></div>
 
 <a title="Call Us" class="worldwide-nav-phone" href="tel:(877) 422-1570">(877) 422-1570</a>
-
-<style>
-    @media only screen and (max-width: 767px) {
-
-         #vip-modal1 {
-        width: 95%;
-        height: 85%;
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Add smooth transition */
-    }
-
-
-    #vip-modal1.show {
-        width: 95%;
-        height: 85%;
-
-    }
-
-    .modal-content {
-        padding: 10px;
-    }
-
-    .label1, .input1 {
-        width: 100%;
-    }
-    .modal{
-        top: 50%;
-        margin-top: 0px !important;
-    }
-    .modal .modal-content{
-        margin-top: 0px !important;
-    }
-
-}
-</style>
-
-<a class="worldwide-btn secondary icon mail shorter" onclick="openVIPModal1()">
-        <div class='inner'>
+<a class="worldwide-btn secondary icon mail shorter" data-target="#vip-modal" data-toggle="modal" href="/vip"><div class='inner'>
 <span class='btn-front'>VIP list</span>
 <span class='btn-back'>Join Now</span>
-        </div>
-    </a>
-<div class="modal-backdrop fade in" style="display: none; z-index: 130" id="hii1" onclick="closeVIPModal1()"></div>
-<div id="vip-modal1" class="modal" style="z-index: 140">
-    <div class="modal-content">
-        <button aria-label="Close" class="close" data-dismiss="modal" id="modal-close" type="button" onclick="closeVIPModal1()"></button>
-        <h3 class="black centered">Become a VIP</h3>
-        <div style="display: flex; flex-direction: column; align-items: flex-start; padding: 20px;">
-            <p class="col-1">1. Be the first to hear about vehicles in our inventory BEFORE they hit the market.</p>
-            <p class="col-1">2. Receive a 72-hour exclusive window with the FIRST OPPORTUNITY to buy.</p>
-            <p class="col-1">3. Receive discounted VIP pricing</p>
-            <p class="col-1">4. Not receive other emails or solicitations.</p>
-        </div>
-        <!-- Your form content goes here -->
-        <form id="vip-form1" method="post" action="{% url 'submit_form' %}">
-            <div>
-                {% csrf_token %}
-            </div>
-            <div class="form-group">
-                <label for="name" class="label1">First Name:</label>
-                <input type="text" id="name" name="name" class="form-control input1">
-            </div>
-            <div class="form-group">
-                <label for="last" class="label1">Last Name:</label>
-                <input type="text" id="last" name="last" class="form-control input1">
-            </div>
-            <div class="form-group">
-                <label for="email" class="label1">Email:</label>
-                <input type="email" id="email" name="email" class="form-control input1">
-            </div>
-            <div class="form-group">
-                <label for="phone"class="label1">Phone Number:</label>
-                <input type="text" id="phone" name="phone" class="form-control input1">
-            </div>
-            <!-- Add more form fields as needed -->
-            <button type="submit" id="submit_button" onclick="closeVIPModal1()">Submit now!</button>
-        </form>
-    </div>
-
-    <script>
-         setTimeout(function () {
-    openVIPModal1();
-}, 2500);
-    function openVIPModal1() {
-        // Show the modal with a smooth fade-in animation
-        const modal = document.getElementById('vip-modal1');
-        const header = document.getElementById('ss1');
-        header.style.zIndex = '139';
-        const back = document.getElementById('hii1');
-        back.style.zIndex = '10000';
-        back.style.display = 'flex';
-        modal.style.zIndex = '10001';
-        modal.style.display = 'flex';
-        setTimeout(() => {
-            modal.style.opacity = '1';
-        }, 10);
-        console.log('Formsasasa opened!');
-
-    }
-
-    function closeVIPModal1() {
-        // Close the modal with a smooth fade-out animation
-        const modal = document.getElementById('vip-modal1');
-        const back = document.getElementById('hii1');
-        back.style.display = 'none';
-        back.style.zIndex = '0';
-        modal.style.opacity = '0';
-        setTimeout(() => {
-            modal.style.display = 'none';
-        }, 300); // Adjust the timeout to match the transition duration
-    }
-
-
-    document.getElementById("vip-form1").addEventListener("submit", function (e) {
-        e.preventDefault();
-         console.log('Form submitted!');
-    var name = document.getElementById('name').value;
-    var last = document.getElementById('last').value;
-    var email = document.getElementById('email').value;
-    var phone = document.getElementById('phone').value;
- var formData = {
-        'name': name,
-        'last': last,
-        'email': email,
-        'phone': phone,
-        // Add more form fields as needed
-    };
-    // Send the data to Django using AJAX
-    $.ajax({
-        type: 'POST',
-        url: '{% url 'submit_form' %}', // Replace with the actual URL of your Django view
-        data: formData,
-        dataType: 'json',
-        success: function (data) {
-            console.log('Form submitted successfully:', data);
-            // Add any additional actions you want to perform after successful submission
-        },
-        error: function (error) {
-            console.error('Error submitting form:', error);
-            // Handle errors or display a message to the user
-        }
-    });
-    });
-
-    function submitVIPForm1() {
-        // Handle form submission logic here
-        console.log('Form submitt123123312ed!');
-        // You can add the logic to send the form data to your server or perform any other actions.
-        // Replace the following line with your actual form submission logic.
-        // document.getElementById('vip-form').submit();
-
-    // Other form fields can be added in a similar manner
-
-    }
-</script>
 </div>
-</div>
+</a></div>
 <nav class='desktop-nav bottom-bar'>
 <ul class='nav navbar-nav'>
-<li class='dropdown'>
+<li class='dropdown '>
 <a class="dropdown-toggle" href="#0">Inventory
 </a><ul class='dropdown-menu'>
 <li>
-<a href="{% url 'sold' %}">Sold Vehicles</a>
+<a href="/vehicles/sold">Sold Vehicles</a>
 </li>
 </ul>
 </li>
@@ -299,16 +157,21 @@
 <a class="dropdown-toggle" href="#0">About Us
 </a><ul class='dropdown-menu'>
 <li>
-<a href="{% url 'about' %}">About</a>
+<a href="/about">About</a>
 </li>
 <li>
-<a href="{% url 'testimonials' %}">Testimonials</a>
+<a href="/testimonials">Testimonials</a>
+</li>
+<li>
+<a href="/team">Team</a>
 </li>
 </ul>
 </li>
 </ul>
 
 </nav>
+</div>
+</div>
 </div>
 
 <div id='content'>
@@ -345,7 +208,7 @@ Transmission:
 </strong>
 </div>
 <div class='detail-col'>
-    {{ car.gearbox }}
+N/A
 </div>
 </div>
 <div class='spec-row'>
@@ -355,7 +218,7 @@ Color:
 </strong>
 </div>
 <div class='detail-col'>
-{{ car.body_color }}
+BLUE
 </div>
 </div>
 <div class='spec-row'>
@@ -365,7 +228,7 @@ Interior:
 </strong>
 </div>
 <div class='detail-col'>
-    {{ car.interior_color }}
+BLUE
 </div>
 </div>
 <div class='spec-row'>
@@ -582,7 +445,7 @@ Back to Results
 <div class='wrap-gallery'>
 <div id='worldwide-video-large'>
 <div class='embed-responsive embed-responsive-16by9'>
-{{ car.video_link|safe }}
+<iframe allowfullscreen='' autoplay='' class='embed-responsive-item' frameborder='0' src='//www.youtube-nocookie.com/embed/BcJN9JGaYFQ?rel=0&amp;showinfo=0'></iframe>
 </div>
 </div>
 <div id='worldwide-lead-image'>
@@ -592,12 +455,12 @@ Back to Results
 <span>/ 51</span>
 </div>
 <div class='lead-image-left'>
-<a class='prev left carousel-control' href='#previous-image' style="background-image: url('https://www.worldwidevintageautos.com/assets/worldwide/icons/arrow-left-w-6643fd28f955698584af6d92f123dc2f.svg')"></a>
+<a class='prev left carousel-control' href='#previous-image'></a>
 </div>
 <div class='lead-image-right'>
-<a class='next right carousel-control' href='#next-image' style="background-image: url('https://www.worldwidevintageautos.com/assets/worldwide/icons/arrow-right-w-f12d32fc6e16fefb3fcb9df2c11cd319.svg')"></a>
+<a class='next right carousel-control' href='#next-image'></a>
 </div>
-<img class="cast-img-responsive" alt="{{ car.year }} {{ car.brand }} {{ car.model }}" data-original="https://cdn.dealeraccelerate.com/worldwide/1/7410/457357/1920x1440/w/1977-chevrolet-k20" src="{{ car.main_photo.url }}" />
+<img class="cast-img-responsive" alt="{{ car.year }} {{ car.brand }} {{ car.model }}" data-original="{{ car }}" src="{{ car.photo_test_main|safe }}" />
 <a class="zoom-lead-icon" href="#"><img id="zoom-icon" src="https://www.worldwidevintageautos.com/assets/worldwide/icons/expand-icon-b62bac869183c814dc0f255322248f9d.png" alt="Expand icon" />
 </a></div>
 </div>
@@ -605,13 +468,13 @@ Back to Results
 <div class='show-car-thumbs-container' id='more-cars'>
 <div class='non-image-thumb' id='worldwide-video-thumb'>
 <div class='worldwide-img-container'>
-<img class="img-responsive" src="{{ car.video_photo }}" alt="0" />
+<img class="img-responsive" src="https://img.youtube.com/vi/BcJN9JGaYFQ/0.jpg" alt="0" />
 <div class='overlay video'></div>
 </div>
 </div>
 <div class='show-car-thumbs'>
 {% for car_photo in car.carphoto_set.all %}
-<a data-original="{{ car_photo.photo.url }}" data-no-turbolink="true" data-index="0" alt="{{ car.year }} {{ car.brand }} {{ car.model }}" thumb="{{ car_photo.photo.url }}" href="{{ car_photo.photo.url }}"><img class="img-responsive" alt="{{ car.year }} {{ car.brand }} {{ car.model }}" src="{{ car_photo.photo.url }}" />
+<a data-original="{{ car_photo.photo1|safe }}" data-no-turbolink="true" data-index="0" alt="{{ car.year }} {{ car.brand }} {{ car.model }}" thumb="{{ car_photo.photo1|safe }}" href="{{ car_photo.photo1|safe }}"><img class="img-responsive" alt="{{ car.year }} {{ car.brand }} {{ car.model }}" src="{{ car_photo.photo1|safe }}" />
 </a>
 {% endfor %}
 </div>
@@ -736,7 +599,7 @@ Vehicle Specs
 <dl class='spec-section-list'>
 <div class='col-sm-12'>
 <dt>Body Color</dt>
-<dd>{{ car.body_color }}</dd>
+<dd>BLUE</dd>
 </div>
 </dl>
 </div>
@@ -746,7 +609,7 @@ Vehicle Specs
 <dl class='spec-section-list'>
 <div class='col-sm-12'>
 <dt>Interior Color</dt>
-<dd>{{ car.interior_color }}</dd>
+<dd>BLUE</dd>
 </div>
 </dl>
 </div>
@@ -917,6 +780,7 @@ On Sale
 </a>
 {% endif %}
 {% endfor %}
+
 
 
 </div>

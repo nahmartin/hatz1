@@ -29,7 +29,6 @@ class Car(models.Model):
 
 class CarPhoto(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to='car_photos/')
     photo1 = models.TextField(default='https://cdn.dealeraccelerate.com/worldwide/1/8226/510832/1920x1440/w/1986-mercedes-benz-560sl')
 
 # Create your models here.
